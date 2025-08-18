@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clinic Management System</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app">
+    <h1>Clinic Management System</h1>
+    <div id="login-section">
+      <h2>Login</h2>
+      <form id="login-form">
+        <input type="email" id="email" placeholder="Email" required />
+        <input type="password" id="password" placeholder="Password" required />
+        <select id="role">
+          <option value="doctor">Doctor</option>
+          <option value="receptionist">Receptionist</option>
+        </select>
+        <button type="submit">Login</button>
+      </form>
+      <button id="register-btn">Register</button>
+      <div id="login-error-message" style="color:red; margin-top:10px; display:none;"></div>
+    </div>
+    <div id="register-section" style="display:none;">
+      <h2>Register</h2>
+      <form id="register-form">
+        <input type="email" id="reg-email" placeholder="Email" required />
+        <input type="password" id="reg-password" placeholder="Password" required />
+        <select id="reg-role">
+          <option value="doctor">Doctor</option>
+          <option value="receptionist">Receptionist</option>
+        </select>
+        <button type="submit">Register</button>
+        <button type="button" id="back-to-login">Back to Login</button>
+      </form>
+      <div id="register-error-message" style="color:red; margin-top:10px; display:none;"></div>
+    </div>
+    <div id="main-section" style="display:none;"></div>
+  </div>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js"></script>
+  <script src="firebase.js"></script>
+  <script src="logger.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
