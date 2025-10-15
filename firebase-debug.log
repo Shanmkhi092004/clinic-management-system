@@ -1,0 +1,31 @@
+[debug] [2025-10-15T05:20:44.331Z] ----------------------------------------------------------------------
+[debug] [2025-10-15T05:20:44.332Z] Command:       /Users/sivapallem/.nvm/versions/node/v20.19.3/bin/node /Users/sivapallem/.nvm/versions/node/v20.19.3/bin/firebase deploy
+[debug] [2025-10-15T05:20:44.332Z] CLI Version:   14.19.1
+[debug] [2025-10-15T05:20:44.333Z] Platform:      darwin
+[debug] [2025-10-15T05:20:44.333Z] Node Version:  v20.19.3
+[debug] [2025-10-15T05:20:44.333Z] Time:          Wed Oct 15 2025 10:50:44 GMT+0530 (India Standard Time)
+[debug] [2025-10-15T05:20:44.333Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-10-15T05:20:44.418Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-10-15T05:20:44.419Z] > authorizing via signed-in user (sivapallem339@gmail.com)
+[debug] [2025-10-15T05:20:44.419Z] [iam] checking project clinic-management-system-1748e for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2025-10-15T05:20:44.419Z] Checked if tokens are valid: true, expires at: 1760507095395
+[debug] [2025-10-15T05:20:44.419Z] Checked if tokens are valid: true, expires at: 1760507095395
+[debug] [2025-10-15T05:20:44.420Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/clinic-management-system-1748e:testIamPermissions [none]
+[debug] [2025-10-15T05:20:44.420Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/clinic-management-system-1748e:testIamPermissions x-goog-quota-user=projects/clinic-management-system-1748e
+[debug] [2025-10-15T05:20:44.420Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/clinic-management-system-1748e:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2025-10-15T05:20:46.059Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/clinic-management-system-1748e:testIamPermissions 200
+[debug] [2025-10-15T05:20:46.060Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/clinic-management-system-1748e:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2025-10-15T05:20:46.061Z] Checked if tokens are valid: true, expires at: 1760507095395
+[debug] [2025-10-15T05:20:46.062Z] Checked if tokens are valid: true, expires at: 1760507095395
+[debug] [2025-10-15T05:20:46.062Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/clinic-management-system-1748e [none]
+[debug] [2025-10-15T05:20:46.976Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/clinic-management-system-1748e 200
+[debug] [2025-10-15T05:20:46.977Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/clinic-management-system-1748e {"projectId":"clinic-management-system-1748e","projectNumber":"160500010389","displayName":"clinic-management-system","name":"projects/clinic-management-system-1748e","resources":{"hostingSite":"clinic-management-system-1748e"},"state":"ACTIVE","etag":"1_0a85feb5-cba7-405f-81e2-deda1d530b96"}
+[info] 
+[info] === Deploying to 'clinic-management-system-1748e'...
+[info] 
+[info] i  deploying hosting 
+[debug] [2025-10-15T05:20:46.985Z] Checked if tokens are valid: true, expires at: 1760507095395
+[debug] [2025-10-15T05:20:46.985Z] Checked if tokens are valid: true, expires at: 1760507095395
+[debug] [2025-10-15T05:20:46.985Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/clinic-management-system-1748e/versions [none]
+[debug] [2025-10-15T05:20:46.985Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/clinic-management-system-1748e/versions {"status":"CREATED","labels":{"deployment-tool":"cli-firebase"}}

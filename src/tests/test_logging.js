@@ -1,4 +1,3 @@
-// Basic test for logging utility
 function testLogAction() {
   let testPassed = false;
   try {

@@ -1,8 +1,3 @@
-// Firebase compat version for browser
-// Make sure the following scripts are included in index.html:
-// <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
-// <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
-// <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js"></script>
 
 const firebaseConfig = {
   apiKey: "AIzaSyBDItOHv3quPgBlFzJw1zFKfTYZgxK39Go",

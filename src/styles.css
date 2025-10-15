@@ -1,4 +1,3 @@
-/* Responsive layout for app */
 @media (max-width: 900px) {
 	#app > div[style*="display:flex"] {
 		flex-direction: column !important;
@@ -71,7 +70,6 @@ body { font-family: Arial, sans-serif; background: #f4f4f4; margin: 0; padding: 
 	flex-direction: column;
 	align-items: center;
 }
-/* Responsive for small screens */
 @media (max-width: 500px) {
 	#login-section {
 		min-width: unset;

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Older Patients List</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .back-arrow {
+      font-size: 2em;
+      cursor: pointer;
+      margin: 18px 0 18px 10px;
+      color: #1976d2;
+      background: none;
+      border: none;
+    }
+    .header-row {
+      display: flex;
+      align-items: center;
+      gap: 1em;
+    }
+    .date-row {
+      margin: 18px 0 18px 0;
+      display: flex;
+      gap: 1em;
+      align-items: center;
+    }
+    #older-patients-list {
+      margin-top: 18px;
+    }
+  </style>
+</head>
+<body>
+  <div class="header-row">
+    <button class="back-arrow" id="back-btn" title="Back">&#8592;</button>
+    <h2>Older Patients List</h2>
+  </div>
+  <div class="date-row">
+    <label for="older-date-input">Select Date:</label>
+    <input type="date" id="older-date-input" max="" value="" />
+    <button id="fetch-older-patients-btn">Show Patients</button>
+  </div>
+  <div id="older-patients-list"></div>
+  <script type="module">
+    import '../firebase.js';
+    import '../logger.js';
+    import '../history/history.js';
+    
+    // Set max and default date
+    const today = new Date().toISOString().slice(0, 10);
+    const dateInput = document.getElementById('older-date-input');
+    dateInput.max = today;
+    dateInput.value = today;
+
+    document.getElementById('back-btn').onclick = function() {
+      window.history.back();
+    };
+
+    document.getElementById('fetch-older-patients-btn').onclick = async function() {
+      const date = dateInput.value;
+      await showOlderPatientsList(date);
+    };
+
+    async function showOlderPatientsList(date) {
+      const listDiv = document.getElementById('older-patients-list');
+      if (!date) {
+        listDiv.innerHTML = '<div>Please select a date.</div>';
+        return;
+      }
+      const snapshot = await window.db.collection('patients')
+        .where('date', '==', date)
+        .orderBy('token')
+        .get();
+      if (snapshot.empty) {
+        listDiv.innerHTML = '<p>No patients found for this date.</p>';
+        return;
+      }
+      let html = `<table style="width:100%;border-collapse:collapse;">
+        <thead>
+          <tr style="background:#f4f4f4;">
+            <th style="border:1px solid #ccc;padding:8px;">Token</th>
+            <th style="border:1px solid #ccc;padding:8px;">Name</th>
+            <th style="border:1px solid #ccc;padding:8px;">Age</th>
+            <th style="border:1px solid #ccc;padding:8px;">Gender</th>
+            <th style="border:1px solid #ccc;padding:8px;">Total Amount</th>
+            <th style="border:1px solid #ccc;padding:8px;">Prescription</th>
+            <th style="border:1px solid #ccc;padding:8px;"></th>
+          </tr>
+        </thead>
+        <tbody>`;
+      snapshot.forEach(docSnap => {
+        const p = docSnap.data();
+        html += `<tr class='patient-row' data-id='${docSnap.id}'>`;
+        html += `<td style=\"border:1px solid #ccc;padding:8px;\">${p.token}</td>`;
+        html += `<td style=\"border:1px solid #ccc;padding:8px;\">${p.name}</td>`;
+        html += `<td style=\"border:1px solid #ccc;padding:8px;\">${p.age}</td>`;
+        html += `<td style=\"border:1px solid #ccc;padding:8px;\">${p.gender}</td>`;
+        html += `<td style=\"border:1px solid #ccc;padding:8px;\">${p.bill ? `₹${p.bill}` : ''}</td>`;
+        html += `<td style=\"border:1px solid #ccc;padding:8px;\">${p.prescription ? p.prescription : ''}</td>`;
+        html += `<td style=\"border:1px solid #ccc;padding:8px;\">`;
+        html += `<button onclick=\"window.viewHistory && window.viewHistory('${docSnap.id}')\">View History</button>`;
+        html += `</td>`;
+        html += `</tr>`;
+      });
+      html += '</tbody></table>';
+      listDiv.innerHTML = html;
+    }
+
+    // Initial load
+    showOlderPatientsList(today);
+  </script>
+</body>
+</html>
