@@ -164,6 +164,8 @@ window.showOlderPatientsModal = function(role) {
       const patient = { name, age, gender, token, date: today, status: 'waiting', history: [] };
       await window.db.collection('patients').add(patient);
       window.logAction('add_patient', { name, age, gender, token });
+      // Reset the form fields after adding a patient
+      document.getElementById('add-patient-form').reset();
       showPatientsList();
     });
     showPatientsList();
