@@ -24,7 +24,7 @@ export function showMainSection(role) {
         </div>
         <div style="flex:2;min-width:340px;">
           <div style="display:flex;align-items:center;gap:1em;margin-bottom:8px;">
-            <button id="current-patients-btn" style="background:#1976d2;color:#fff;">Current</button>
+            <button id="current-patients-btn" style="background:#1976d2;color:#fff;">Today</button>
             <button id="older-patients-btn" style="background:#fff;color:#1976d2;border:1px solid #1976d2;">Older</button>
           </div>
           <h3 id="patients-list-title">Today's Patients</h3>
@@ -35,7 +35,7 @@ export function showMainSection(role) {
   } else if (role === 'doctor') {
     html += `
       <div style="display:flex;align-items:center;gap:1em;margin-bottom:8px;">
-  <button id="current-patients-btn" style="background:#1976d2;color:#fff;">Current</button>
+  <button id="current-patients-btn" style="background:#1976d2;color:#fff;">Today</button>
   <button id="older-patients-btn" style="background:#fff;color:#1976d2;border:1px solid #1976d2;">Older</button>
       </div>
       <h3 id="patients-list-title">Today's Patients</h3>
