@@ -26,7 +26,10 @@ export function setupAuthHandlers() {
           return;
         }
       }
-      window.logAction('login', { email, role });
+    window.logAction('login', { email, role });
+    // Store role and redirect to dashboard
+    localStorage.setItem('userRole', role);
+    window.location.href = 'dashboard.html';
     } catch (err) {
       alert('Login failed: ' + err.message);
       window.logAction('login_failed', { email, role, error: err.message });
@@ -60,9 +63,13 @@ export function setupAuthHandlers() {
   window.auth.onAuthStateChanged(async (user) => {
     const loginSection = document.getElementById('login-section');
     const mainSection = document.getElementById('main-section');
-    mainSection.style.display = 'none';
-    mainSection.innerHTML = '';
-    loginSection.style.display = 'block';
+    if (mainSection) {
+      mainSection.style.display = 'none';
+      mainSection.innerHTML = '';
+    }
+    if (loginSection) {
+      loginSection.style.display = 'block';
+    }
     if (user) {
       const userDocRef = window.db.collection('users').doc(user.uid);
       let userDoc;
@@ -85,9 +92,11 @@ export function setupAuthHandlers() {
         }
       }
       if (role === 'doctor' || role === 'receptionist') {
-        showMainSection(role);
-        loginSection.style.display = 'none';
-        mainSection.style.display = 'block';
+        // Store role and redirect to dashboard.html only if on login page
+        localStorage.setItem('userRole', role);
+        if (window.location.pathname.endsWith('index.html')) {
+          window.location.href = 'dashboard.html';
+        }
       } else {
         await window.auth.signOut();
       }

@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Clinic Management System</title>
   <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Italianno&display=swap" rel="stylesheet">
   <link rel="icon" type="image/jpeg" href="./download.jpeg"/>
 </head>
 <body>
@@ -158,7 +159,7 @@
     }
   </style>
   <div class="app">
-    <h1 style="text-align: center; width: 100vw; padding-left: 0;">Clinic Management System</h1>
+  <h1 style="text-align:center; margin-top:24px; font-family: 'Italianno', cursive; font-size:3.2rem; letter-spacing:2px; text-shadow: 2px 2px 8px #888, 0 1px 0 #fff; width:100vw; padding-left:0;">Clinic Management System</h1>
     <div id="login-section" class="form-section">
       <h2>Login</h2>
       <form id="login-form">
@@ -191,7 +192,8 @@
       </form>
       <div id="register-error-message" style="color:red; margin-top:10px; display:none;"></div>
     </div>
-    <div id="main-section" style="display:none;"></div>
+  <!-- Dashboard/main-section is now handled in dashboard.html -->
+  <!-- <div id="main-section" style="display:none;"></div> -->
   </div>
   <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
@@ -200,10 +202,6 @@
   <script src="logger.js"></script>
   <script type="module" src="main.js"></script>
 </body>
-<div id="bill-modal" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.4); z-index:1000; align-items:center; justify-content:center;">
-  <div style="background:#fff; padding:24px 18px; border-radius:8px; min-width:220px; max-width:340px; margin:10vh auto; position:relative; box-shadow:0 2px 16px rgba(0,0,0,0.18); display:flex; flex-direction:column; align-items:flex-end;">
-    <div id="bill-modal-body" style="width:100%; align-self:center; padding-top:0;"></div>
-  </div>
-</div>
+  <!-- Bill modal is now handled in dashboard.html -->
 </body>
 </html>

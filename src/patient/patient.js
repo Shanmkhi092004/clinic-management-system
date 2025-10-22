@@ -1,7 +1,10 @@
 import { renderMainSection } from '../ui/ui.js';
 
 export function showMainSection(role) {
-  document.getElementById('login-section').style.display = 'none';
+  const loginSection = document.getElementById('login-section');
+  if (loginSection) {
+    loginSection.style.display = 'none';
+  }
   const main = document.getElementById('main-section');
   main.style.display = 'block';
   let html = `
@@ -138,11 +141,9 @@ window.showOlderPatientsModal = function(role) {
   const logoutBtn = document.getElementById('logout-btn');
   if (logoutBtn) {
     logoutBtn.addEventListener('click', async () => {
-      await window.auth.signOut();
-      window.logAction('logout', {});
-      document.getElementById('main-section').style.display = 'none';
-      document.getElementById('main-section').innerHTML = '';
-      document.getElementById('login-section').style.display = 'block';
+  await window.auth.signOut();
+  window.logAction('logout', {});
+  window.location.href = 'index.html';
     });
   }
   if (role === 'receptionist') {

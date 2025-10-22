@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Italianno&display=swap" rel="stylesheet">
+</head>
+<body>
+  <h1 style="text-align:center; margin-top:24px; font-family: 'Italianno', cursive; font-size:3.2rem; letter-spacing:2px; text-shadow: 2px 2px 8px #888, 0 1px 0 #fff;">Clinic Management System</h1>
+  <div id="main-section"></div>
+  <div id="bill-modal" style="display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.4);z-index:1000;align-items:center;justify-content:center;">
+    <div id="bill-modal-body" style="background:#fff;padding:24px 18px;border-radius:8px;min-width:260px;max-width:400px;margin:10vh auto;position:relative;box-shadow:0 2px 16px rgba(0,0,0,0.18);"></div>
+  </div>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js"></script>
+  <script src="firebase.js"></script>
+  <script src="logger.js"></script>
+  <script type="module" src="dashboard.js"></script>
+</body>
+</html>
